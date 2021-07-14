@@ -9,6 +9,10 @@ gem 'rails', '~> 6.1.4'
 gem 'mysql2', '~> 0.5'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
+
+# Autentication gem
+gem 'devise_token_auth'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
