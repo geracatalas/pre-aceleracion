@@ -1,6 +1,8 @@
 module Api
   module V1
     class MoviesController < ApplicationController
+      before_action :authenticate_user!            
+      before_action :movie, only: [:show, :update, :destroy]
       def index
 
         render json: movies, each_serializer: MovieSerializer, status: :ok

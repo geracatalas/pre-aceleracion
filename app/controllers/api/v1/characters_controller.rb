@@ -1,6 +1,8 @@
 module Api
   module V1
     class CharactersController < ApplicationController
+      before_action :authenticate_user!            
+      before_action :character, only: [:show, :update, :destroy]
       def index
 
         render json: characters, each_serializer: CharacterSerializer, status: :ok
@@ -54,7 +56,7 @@ module Api
           characters = Character.all
           characters = characters.for_name(name) if name
           characters = characters.for_age(age) if age
-          characters = characters.for_idMovie(idMovie) if idMovie
+          characters = characters.for_movies(movies) if movies
           characters
         end
 
@@ -66,8 +68,8 @@ module Api
           params[:age]
         end
 
-        def idMovie
-          params[:idMovie]
+        def movies
+          params[:movies]
         end
 
         def parameters
