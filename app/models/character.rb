@@ -5,5 +5,15 @@ class Character < ApplicationRecord
   # Scopes
   scope :for_name, -> (name) { where name: name}
   scope :for_age, -> (age) { where age: age}
-  scope :for_idMovie, -> (idMovie) { where movie_id: idMovie}
+  scope :for_movies, -> (movies) { where movie_id: movies}
+
+  # Validations  
+  validates :image,
+            :name,
+            :age,
+            :weight,
+            :history,
+            :movie_id,
+            presence: true
+
 end
